@@ -1,0 +1,17 @@
+
+.custom-input-style{
+      border:0; border-bottom: 1px solid rgb(227, 222, 207);
+    }
+    .list-custom-headings{
+      margin-top: 3%; 
+      font-weight: bold; 
+      text-align: center;
+      padding: 1%;
+      border-radius: 5px;
+    }
+    .active-custom-style{
+     color: rgba(25,164,186,1);
+    }
+.boxShadow{
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    }
