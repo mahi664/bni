@@ -27,53 +27,54 @@
 
 	<div class="row list-custom-headings bg-info">
 		<div class="col-md-1">#</div>
-		<div class="col-md-3">Product Name</div>
-		<div class="col-md-3">Category</div>
-		<div class="col-md-1">Cost</div>
-		<div class="col-md-1">Price</div>
+		<div class="col-md-2">Batch No.</div>
+    <div class="col-md-2">Product Name</div>
+		<div class="col-md-2">Category</div>
+		<div class="col-md-2">Expiry Date</div>
 		<div class="col-md-2">Stock Status</div>
 	</div>
 	<hr>
 
-<div *ngFor="let product of products">
+<div *ngFor="let product of products; let i = index">
     
-	<div id="{{product}}">
+	<div id="{{i}}">
 		<div class="row" style="margin-top: 2%; text-align: center;">
 			<div class="col-md-1"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1"></div>
-				<div class="col-md-3">Silky Creamy stream moisture</div>
-				<div class="col-md-3">Cosmetic</div>
-				<div class="col-md-1"><i class='fas fa-rupee-sign'></i>4.09</div>
-				<div class="col-md-1"><i class='fas fa-rupee-sign'></i>10.00</div>
+				<div class="col-md-2">{{product.batchNo}}</div>
+        <div class="col-md-2">{{product.productName}}</div>
+				<div class="col-md-2">{{product.category}}</div>
+				<div class="col-md-2">{{product.expDate | date}}</div>
 				<div class="col-md-2">
 					<div class="progress">
 						<div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-							role="progressbar" style="width: 89.34%" aria-valuenow="25" aria-valuemin="0"
-							aria-valuemax="100">20/23</div>
+							role="progressbar" style="width: {{product.avilStockPercent}}%" aria-valuenow="25" aria-valuemin="0"
+							aria-valuemax="100">{{product.inStock}}/{{product.totalQty}}</div>
 					</div>
 				</div>
 				<div class="col-md-1">
-					<span class="badge badge-pill badge-info"><i class='fas fa-angle-down' id="{{product}}_down" (click)="expandProduct(product)"></i><i class='fas fa-angle-up' id="{{product}}_up" (click)="restoreProduct(product)" style="display: none;"></i></span>
+					<span class="badge badge-pill badge-info"><i class='fas fa-angle-down' id="{{i}}_down" (click)="expandProduct(i)"></i><i class='fas fa-angle-up' id="{{i}}_up" (click)="restoreProduct(i)" style="display: none;"></i></span>
 				</div>
 			</div>
 
-			<div id="{{product}}_content" class="row" style="margin-top: 2%; display: none;"> 
+			<div id="{{i}}_content" class="row" style="margin-top: 2%; display: none;"> 
 				<div class="col-md-1"></div>
 				<div class="col-md-3">
-					<small>Display name</small><input class="form-control form-control-sm custom-input-style" type="text" value="Silky Creamy stream moisture"><br>
-					<small>Total Stock</small><input class="form-control form-control-sm custom-input-style" type="text" value="23"><br>
-					<small>In Rack</small><input class="form-control form-control-sm custom-input-style" type="text" value="20"><br>
+					<small>Display name</small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.productName"><br>
+					<small>Total Stock</small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.totalQty"><br>
+					<small>GST</small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.gst"><br>
               </div>
 					<div class="col-md-3">
 						<small>Category</small>
-						<select class="form-control form-control-sm custom-input-style">
-                  <option>Cosmetic</option>
-                </select><br>
-						<small>Cost</small><input class="form-control form-control-sm custom-input-style" type="text" value="4.09"><br>
-
+						<select class="form-control form-control-sm custom-input-style" [(ngModel)]="product.category">
+                  <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+            </select><br>
+            <small>In Stock</small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.inStock"><br>
+            <small>MFG Date</small><input class="form-control form-control-sm custom-input-style" type="date" [(ngModel)]="product.mfgDate"><br>
               </div>
 						<div class="col-md-3">
-							<small>Price</small><input class="form-control form-control-sm custom-input-style" type="text" value="10.00"><br>
-							<small>Reserved Stock</small><input class="form-control form-control-sm custom-input-style" type="text" value="3"><br><br><br>
+							<small>Selling Price</small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.sellingPrice"><br>
+							<small>Purchased Cost</small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.purchasedCost"><br>
+              <small>EXP Date</small><input class="form-control form-control-sm custom-input-style" type="date" [(ngModel)]="product.expDate"><br>
 							<h5 style="float: right">
 								<span class="badge badge-pill bg-info"><a href="#" style="text-decoration: none; color: white;">Save</a></span>
 							</h5>

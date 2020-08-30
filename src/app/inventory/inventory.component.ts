@@ -1,12 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
+export class InvetoryDetails{
+  constructor(public batchNo: string, public productName: string, public category: string, public totalQty: number, public inStock: number,public sellingPrice: number, public purchasedCost: number, public gst: number, public expDate:Date, public mfgDate: Date,public avilStockPercent: number){}
+}
+
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
   styleUrls: ['./inventory.component.css']
 })
+
 export class InventoryComponent implements OnInit {
-  products = [1,2,3];
+  products = [
+    new InvetoryDetails('XD2122','Test Product 1', 'Test Category 1', 20,19,480,400,12, new Date(),new Date(),19*100/20),
+    new InvetoryDetails('XD2133','Test Product 2', 'Test Category 2', 40,15,40,20,18, new Date(),new Date(),15*100/40),
+    new InvetoryDetails('XD2111','Test Product 1', 'Test Category 1', 200,121,480,400,12, new Date(),new Date(),121*100/200)
+  ];
+   categories = ['Test Category 1','Test Category 2','Test Category 3','Test Category 4','Test Category 5'];
   constructor() { }
 
   ngOnInit() {
