@@ -1,4 +1,4 @@
-<div class="row">
+  <div class="row">
 	<div class="col-md-2" style="text-align: center;">
 		<h5><b>Inventory</b></h5>
 	</div>
@@ -27,11 +27,10 @@
 
 	<div class="row list-custom-headings bg-info">
 		<div class="col-md-1">#</div>
-		<div class="col-md-2">Batch No.</div>
-    <div class="col-md-2">Product Name</div>
+    <div class="col-md-3">Product Name</div>
+    <div class="col-md-3">Description</div>
 		<div class="col-md-2">Category</div>
-		<div class="col-md-2">Expiry Date</div>
-		<div class="col-md-2">Stock Status</div>
+		<div class="col-md-2">Stock</div>
 	</div>
 	<hr>
 
@@ -40,13 +39,16 @@
 	<div id="{{i}}">
 		<div class="row" style="margin-top: 2%; text-align: center;">
 			<div class="col-md-1"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1"></div>
-				<div class="col-md-2">{{product.batchNo}}</div>
-        <div class="col-md-2">{{product.productName}}</div>
-				<div class="col-md-2">{{product.category}}</div>
-				<div class="col-md-2">{{product.expDate | date}}</div>
+        <div class="col-md-3"> <input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.productName"></div>
+        	<div class="col-md-3"><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.description"></div>
+				<div class="col-md-2">
+          	<select class="form-control form-control-sm custom-input-style" [(ngModel)]="product.category">
+                  <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+            </select>
+        </div>
 				<div class="col-md-2">
 					<div class="progress">
-						<div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+						<div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
 							role="progressbar" style="width: {{product.avilStockPercent}}%" aria-valuenow="25" aria-valuemin="0"
 							aria-valuemax="100">{{product.inStock}}/{{product.totalQty}}</div>
 					</div>
@@ -56,8 +58,8 @@
 				</div>
 			</div>
 
-			<div id="{{i}}_content" class="row" style="margin-top: 2%; display: none;"> 
-				<div class="col-md-1"></div>
+			<div id="{{i}}_content" class="row" style=" display: none; margin: 2% 1%;"> 
+				<!-- <div class="col-md-1"></div>
 				<div class="col-md-3">
 					<small>Display name</small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.productName"><br>
 					<small>Total Stock</small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.totalQty"><br>
@@ -79,7 +81,33 @@
 								<span class="badge badge-pill bg-info"><a href="#" style="text-decoration: none; color: white;">Save</a></span>
 							</h5>
 						</div>
-					</div>
+					</div> -->
+          <table class="table">
+						<thead class="bg-info">
+							<th>#</th>
+							<th>Batch No.</th>
+							<th>Price</th>
+							<th>Cost</th>
+              <th>GST</th>
+							<th>Qty</th>
+							<th>In Stock</th>
+              <th>Exp Date</th>
+              <th>Mfg Date</th>
+						</thead>
+						<tbody>
+							<tr *ngFor="let inventory of product.inventories; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{inventory.batchNo}}</td>
+                <td><i class='fas fa-rupee-sign'></i>{{inventory.sellingPrice}}</td>
+                <td><i class='fas fa-rupee-sign'></i>{{inventory.purchasedCost}}</td>
+                <td>{{inventory.gst}}%</td>
+                <td>{{inventory.totalQty}}</td>
+                <td>{{inventory.inStock}}</td>
+                <td>{{inventory.expDate | date}}</td>
+                <td>{{inventory.mfgDate | date}}</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
         <hr>
 </div>

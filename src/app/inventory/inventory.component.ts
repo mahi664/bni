@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 export class InvetoryDetails{
-  constructor(public batchNo: string, public productName: string, public category: string, public totalQty: number, public inStock: number,public sellingPrice: number, public purchasedCost: number, public gst: number, public expDate:Date, public mfgDate: Date,public avilStockPercent: number){}
+  constructor(public batchNo: string,  public totalQty: number, public inStock: number,public sellingPrice: number, public purchasedCost: number, public gst: number, public expDate:Date, public mfgDate: Date){}
+}
+
+export class ProductDet{
+  constructor(public productName: string, public description: string, public category: string,public inStock: number,public totalQty: number, public avilStockPercent: number,public inventories=[]){}
 }
 
 @Component({
@@ -12,9 +16,18 @@ export class InvetoryDetails{
 
 export class InventoryComponent implements OnInit {
   products = [
-    new InvetoryDetails('XD2122','Test Product 1', 'Test Category 1', 20,19,480,400,12, new Date(),new Date(),19*100/20),
-    new InvetoryDetails('XD2133','Test Product 2', 'Test Category 2', 40,15,40,20,18, new Date(),new Date(),15*100/40),
-    new InvetoryDetails('XD2111','Test Product 1', 'Test Category 1', 200,121,480,400,12, new Date(),new Date(),121*100/200)
+    new ProductDet('Test Product 1','Test product description 1','Test Category 1',140,220,140*100/220,[
+      new InvetoryDetails('XD2122',20,19,480,400,12, new Date(),new Date()),
+      new InvetoryDetails('XD2111',200,121,480,400,12, new Date(),new Date())
+    ]),
+    new ProductDet('Test Product 2','Test product description 2','Test Category 2',15,40,15*100/40,[
+      new InvetoryDetails('XD2133',40,15,40,20,18, new Date(),new Date())
+    ]),
+    new ProductDet('Test Product 3','Test product description 3','Test Category 1',140,220,140*100/220,[
+      new InvetoryDetails('XD2122',20,19,480,400,12, new Date(),new Date()),
+      new InvetoryDetails('XD2111',200,121,480,400,12, new Date(),new Date()),
+      new InvetoryDetails('XD2133',40,15,40,20,18, new Date(),new Date())
+    ])
   ];
    categories = ['Test Category 1','Test Category 2','Test Category 3','Test Category 4','Test Category 5'];
   constructor() { }
