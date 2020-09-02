@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonServiceService } from '../common-service.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-nav.component.css']
 })
 export class SideNavComponent implements OnInit {
-
-  constructor() { }
+  constructor(private commonService: CommonServiceService) { }
 
   ngOnInit() {
   }
+
+  sideNavExpanded = this.commonService.sideNavExpanded;
 
 }
