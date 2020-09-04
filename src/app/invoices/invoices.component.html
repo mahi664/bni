@@ -4,8 +4,8 @@
 	</div>
 	<div class="col-md-2" style="text-align: center;  ">
 		<select class="form-control form-control-sm custom-input-style">
-                <option>Payment Status</option>
-              </select>
+      <option>Payment Status</option>
+    </select>
 	</div>
 	<div class="col-md-2" style="text-align: center; ">
 		<input class="form-control form-control-sm custom-input-style" type="date">
@@ -29,7 +29,8 @@
 			<div class="col-md-2">Customer</div>
 			<div class="col-md-1">GST</div>
 			<div class="col-md-1">Total</div>
-			<div class="col-md-2">Payment Status</div>
+			<div class="col-md-1">Paid</div>
+      <div class="col-md-1">Unpaid</div>
 		</div>
 		<hr>
 
@@ -44,10 +45,11 @@
 					<div class="col-md-1">
 						<p><i class='fas fa-rupee-sign'></i>{{invoice.total}}</p>
 					</div>
-					<div class="col-md-2 ">
-						<select class="form-control form-control-sm custom-input-style" [(ngModel)]="invoice.paymentStatus">
-                <option *ngFor="let paymentStatus of paymentsStatuses" value="{{paymentStatus}}">{{paymentStatus}}</option>
-              </select>
+					<div class="col-md-1 ">
+						<input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="invoice.paid">
+					</div>
+          <div class="col-md-1 ">
+						<input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="invoice.total - invoice.paid">
 					</div>
 					<div class="col-md-1">
 						<span class="badge badge-pill badge-info"><i class='fas fa-angle-down' id="{{i}}_down" (click)="expandProduct(i)"></i><i class='fas fa-angle-up' id="{{i}}_up" (click)="restoreProduct(i)" style="display: none;"></i></span>
@@ -83,4 +85,10 @@
 				</div>
 			</div>
 			<hr>
+    </div>
+    <div class="col-md-12" style="bottom: 0; width: 100%;">
+      <h5>
+        <span class="badge badge-pill bg-info"><a href="#" style="text-decoration: none; color: white;">Save </a></span>&nbsp;
+        <span class="badge badge-pill bg-info"><a href="#" style="text-decoration: none; color: white;">Delete</a></span>
+      </h5>
     </div>

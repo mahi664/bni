@@ -14,5 +14,4 @@ export class SideNavComponent implements OnInit {
 
   sideNavExpanded = this.commonService.sideNavExpanded;
 
-  rightDropDown = false;
 }

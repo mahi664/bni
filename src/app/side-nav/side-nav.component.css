@@ -12,10 +12,6 @@
   z-index: 1;
   background-color: white;
   text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-
-.custom-right-dropdown-content{
-  margin: 15px;
-}
-
-    

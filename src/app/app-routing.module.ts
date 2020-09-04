@@ -11,6 +11,7 @@ const routes: Routes = [
   {path:'Inventory', component: InventoryComponent},
   {path:'Dashboard', component: DashboardComponent},
   {path:'Invoices', component: InvoicesComponent},
+  {path:'Purchase-Orders', component: PurchaseOrderComponent},
   {path:'**',component:LoginComponent}
 ]; // sets up routes constant where you define your routes
 

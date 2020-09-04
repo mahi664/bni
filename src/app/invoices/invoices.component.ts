@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 export class InvoiceDet{
-  constructor(public invoiceId: string, public invoiceDate: Date, public customerName: string, public gst: number, public total: number,public paymentStatus: string, public productsDet=[]){}
+  constructor(public invoiceId: string, public invoiceDate: Date, public customerName: string, public gst: number, public total: number,public paid: number, public productsDet=[]){}
 }
 
 export class ProductDet{
@@ -15,16 +15,40 @@ export class ProductDet{
 })
 export class InvoicesComponent implements OnInit {
   invoices = [
-    new InvoiceDet('2020001',new Date(),'Test Customer 1',1260,9760,'Paid',[
+    new InvoiceDet('2020001',new Date(),'Test Customer 1',1260,9760,9760,[
       new ProductDet('XD2122','Test Product 1',new Date(),1000,2,240,0,2240),
       new ProductDet('XD2125','Test Product 2',new Date(),500,3,120,0,1620),
       new ProductDet('XD2133','Test Product 3',new Date(),5000,1,900,0,5900)
     ]),
-    new InvoiceDet('2020002',new Date(),'Test Customer 2',360,3860,'Partially Paid',[
+    new InvoiceDet('2020002',new Date(),'Test Customer 2',360,3860,3000,[
       new ProductDet('XD2122','Test Product 1',new Date(),1000,2,240,0,2240),
       new ProductDet('XD2125','Test Product 2',new Date(),500,3,120,0,1620)
     ]),
-    new InvoiceDet('2020003',new Date(),'Test Customer 1',240,2240,'Unpaid',[
+    new InvoiceDet('2020003',new Date(),'Test Customer 1',240,2240,0,[
+      new ProductDet('XD2122','Test Product 1',new Date(),1000,2,240,0,2240)
+    ]),
+    new InvoiceDet('2020001',new Date(),'Test Customer 1',1260,9760,9760,[
+      new ProductDet('XD2122','Test Product 1',new Date(),1000,2,240,0,2240),
+      new ProductDet('XD2125','Test Product 2',new Date(),500,3,120,0,1620),
+      new ProductDet('XD2133','Test Product 3',new Date(),5000,1,900,0,5900)
+    ]),
+    new InvoiceDet('2020002',new Date(),'Test Customer 2',360,3860,3000,[
+      new ProductDet('XD2122','Test Product 1',new Date(),1000,2,240,0,2240),
+      new ProductDet('XD2125','Test Product 2',new Date(),500,3,120,0,1620)
+    ]),
+    new InvoiceDet('2020003',new Date(),'Test Customer 1',240,2240,0,[
+      new ProductDet('XD2122','Test Product 1',new Date(),1000,2,240,0,2240)
+    ]),
+    new InvoiceDet('2020001',new Date(),'Test Customer 1',1260,9760,9760,[
+      new ProductDet('XD2122','Test Product 1',new Date(),1000,2,240,0,2240),
+      new ProductDet('XD2125','Test Product 2',new Date(),500,3,120,0,1620),
+      new ProductDet('XD2133','Test Product 3',new Date(),5000,1,900,0,5900)
+    ]),
+    new InvoiceDet('2020002',new Date(),'Test Customer 2',360,3860,3000,[
+      new ProductDet('XD2122','Test Product 1',new Date(),1000,2,240,0,2240),
+      new ProductDet('XD2125','Test Product 2',new Date(),500,3,120,0,1620)
+    ]),
+    new InvoiceDet('2020003',new Date(),'Test Customer 1',240,2240,0,[
       new ProductDet('XD2122','Test Product 1',new Date(),1000,2,240,0,2240)
     ]),
   ];

@@ -27,7 +27,31 @@ export class InventoryComponent implements OnInit {
       new InvetoryDetails('XD2122',20,19,480,400,12, new Date(),new Date()),
       new InvetoryDetails('XD2111',200,121,480,400,12, new Date(),new Date()),
       new InvetoryDetails('XD2133',40,15,40,20,18, new Date(),new Date())
-    ])
+    ]),
+    new ProductDet('Test Product 1','Test product description 1','Test Category 1',140,220,140*100/220,[
+      new InvetoryDetails('XD2122',20,19,480,400,12, new Date(),new Date()),
+      new InvetoryDetails('XD2111',200,121,480,400,12, new Date(),new Date())
+    ]),
+    new ProductDet('Test Product 2','Test product description 2','Test Category 2',15,40,15*100/40,[
+      new InvetoryDetails('XD2133',40,15,40,20,18, new Date(),new Date())
+    ]),
+    new ProductDet('Test Product 3','Test product description 3','Test Category 1',140,220,140*100/220,[
+      new InvetoryDetails('XD2122',20,19,480,400,12, new Date(),new Date()),
+      new InvetoryDetails('XD2111',200,121,480,400,12, new Date(),new Date()),
+      new InvetoryDetails('XD2133',40,15,40,20,18, new Date(),new Date())
+    ]),
+    new ProductDet('Test Product 1','Test product description 1','Test Category 1',140,220,140*100/220,[
+      new InvetoryDetails('XD2122',20,19,480,400,12, new Date(),new Date()),
+      new InvetoryDetails('XD2111',200,121,480,400,12, new Date(),new Date())
+    ]),
+    new ProductDet('Test Product 2','Test product description 2','Test Category 2',15,40,15*100/40,[
+      new InvetoryDetails('XD2133',40,15,40,20,18, new Date(),new Date())
+    ]),
+    new ProductDet('Test Product 3','Test product description 3','Test Category 1',140,220,140*100/220,[
+      new InvetoryDetails('XD2122',20,19,480,400,12, new Date(),new Date()),
+      new InvetoryDetails('XD2111',200,121,480,400,12, new Date(),new Date()),
+      new InvetoryDetails('XD2133',40,15,40,20,18, new Date(),new Date())
+    ]),
   ];
    categories = ['Test Category 1','Test Category 2','Test Category 3','Test Category 4','Test Category 5'];
   constructor() { }
