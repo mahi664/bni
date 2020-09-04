@@ -6,3 +6,16 @@
       box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
       text-align: center;
     }
+  .custom-right-dropdown{
+  margin-left: 50%; 
+  position:absolute;
+  z-index: 1;
+  background-color: white;
+  text-align: center;
+}
+
+.custom-right-dropdown-content{
+  margin: 15px;
+}
+
+    
