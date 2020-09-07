@@ -66,7 +66,6 @@ export class InventoryComponent implements OnInit {
     for(this.i=1;this.i<=this.noOfPages;this.i++){
       this.pages.push(this.i);
     }
-    console.log(this.products);
     this.pageOfProducts = this.products.slice(0,5);
   }
 

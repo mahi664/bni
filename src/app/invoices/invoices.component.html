@@ -34,7 +34,7 @@
 		</div>
 		<hr>
 
-    <div *ngFor="let invoice of invoices; let i = index">
+    <div *ngFor="let invoice of pageOfInvoices; let i = index">
 		<div id="{{i}}">
 			<div class="row" style="margin-top: 2%; text-align: center;">
 				<div class="col-md-1"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1"></div>
@@ -85,6 +85,27 @@
 				</div>
 			</div>
 			<hr>
+    </div>
+    <div class="col-md-12 text-info" style="bottom: 0; width: 100%;">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination pagination-sm">
+          <li class="page-item" (click)="changePageContent(currPage-1)">
+            <a class="page-link" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li *ngFor="let page of pages" class="page-item" (click)="changePageContent(page)">
+            <a class="page-link" [ngClass]="page==currPage?'active-pagination':''">{{page}}</a>
+          </li>
+          <li class="page-item" (click)="changePageContent(currPage+1)">
+            <a class="page-link" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
     <div class="col-md-12" style="bottom: 0; width: 100%;">
       <h5>

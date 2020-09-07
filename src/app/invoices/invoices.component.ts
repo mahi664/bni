@@ -55,7 +55,17 @@ export class InvoicesComponent implements OnInit {
   paymentsStatuses = ['Paid','Unpaid','Partially Paid'];
   constructor() { }
 
+  noOfPages=0;
+  i;
+  pageOfInvoices=[];
+  pages=[];
+  currPage=1;
   ngOnInit() {
+    this.noOfPages = Math.ceil(this.invoices.length/5);
+    for(this.i=1;this.i<=this.noOfPages;this.i++){
+      this.pages.push(this.i);
+    }
+    this.pageOfInvoices = this.invoices.slice(0,5);
   }
 
   expandProduct(entity_id){
@@ -80,5 +90,13 @@ export class InvoicesComponent implements OnInit {
       document.getElementById(product_up_button_id).style.display = "none";
       document.getElementById(product_down_button_id).style.display = "block";
       document.getElementById(content_id).style.display = "none";
+  }
+  changePageContent(pageNo){
+    if(pageNo<=0)
+      pageNo=1;
+    else if(pageNo>=this.noOfPages)
+      pageNo=this.noOfPages;
+    this.pageOfInvoices = this.invoices.slice((pageNo-1)*5,(pageNo-1)*5+5);
+    this.currPage=pageNo;
   }
 }

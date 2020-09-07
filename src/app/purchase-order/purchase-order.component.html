@@ -33,7 +33,7 @@
 		</div>
 		<hr>
 
-    <div *ngFor="let invoice of invoices; let i = index">
+    <div *ngFor="let invoice of pageOfInvoices; let i = index">
 		<div id="{{i}}">
 			<div class="row" style="margin-top: 2%; text-align: center;">
 				<div class="col-md-1"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1"></div>
@@ -72,16 +72,44 @@
 								<td><input class="form-check-input" type="checkbox" value="" id="defaultCheck1"></td>
 								<td>{{product.batchNo}}</td>
                 <td>{{product.productName}}</td>
-                <td>{{product.expDate | date}}</td>
 								<td><i class='fas fa-rupee-sign'></i>{{product.price}}</td>
 								<td>x {{product.quantity}}</td>
                 <td>{{product.gst}}</td>
 								<td style="color: red;">{{product.discount}}%</td>
 								<td><i class='fas fa-rupee-sign'></i>{{product.total}}</td>
+                <td>{{product.mfgDate | date}}</td>
+                <td>{{product.expDate | date}}</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
 			<hr>
+    </div>
+  <div class="col-md-12 text-info" style="bottom: 0; width: 100%;">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination pagination-sm">
+          <li class="page-item" (click)="changePageContent(currPage-1)">
+            <a class="page-link" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li *ngFor="let page of pages" class="page-item" (click)="changePageContent(page)">
+            <a class="page-link" [ngClass]="page==currPage?'active-pagination':''">{{page}}</a>
+          </li>
+          <li class="page-item" (click)="changePageContent(currPage+1)">
+            <a class="page-link" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-md-12" style="bottom: 0; width: 100%;">
+      <h5>
+        <span class="badge badge-pill bg-info"><a href="#" style="text-decoration: none; color: white;">Save </a></span>&nbsp;
+        <span class="badge badge-pill bg-info"><a href="#" style="text-decoration: none; color: white;">Delete</a></span>
+      </h5>
     </div>

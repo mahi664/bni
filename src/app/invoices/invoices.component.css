@@ -9,3 +9,7 @@
       padding: 1%;
       border-radius: 5px;
     }
+  .active-pagination{
+  background-color:  rgb(233, 236, 239);
+  color: white;
+}
