@@ -9,16 +9,16 @@
 			</li><br>
 			<li class="nav-item active-custom-style" (mouseover)="rightDropDownForInvoices=true" (mouseout)="rightDropDownForInvoices=false">
         <span class="custom-right-dropdown custom-side-nav" [hidden]="!rightDropDownForInvoices">
-            <h6><a class="text-info custom-right-dropdown-content nav-link" routerLink="/Invoices">All Invoices</a></h6>
+            <small><a class="text-info custom-right-dropdown-content nav-link" routerLink="/Invoices">Sales Invoices</a></small>
             <hr>
-            <h6><a class="text-info custom-right-dropdown-content nav-link"href="#">New Invoice</a></h6>
+            <small><a class="text-info custom-right-dropdown-content nav-link"href="#">Purchase Invoices</a></small>
         </span>
 				<a class="nav-link" routerLink="/Invoices" 
           title="Invoices"><i class='fas fa-shopping-cart custom-nav-icons text-info'></i><br>
           <small class='text-info side-nav-text' [hidden]="!commonService.sideNavExpanded">Invoices</small>
         </a>
 			</li><br>
-      <li class="nav-item active-custom-style" (mouseover)="rightDropDownForPurchase=true" (mouseout)="rightDropDownForPurchase=false">
+      <!-- <li class="nav-item active-custom-style" (mouseover)="rightDropDownForPurchase=true" (mouseout)="rightDropDownForPurchase=false">
         <span class="custom-right-dropdown custom-side-nav" [hidden]="!rightDropDownForPurchase">
             <small><a class="text-info custom-right-dropdown-content nav-link" routerLink="/Purchase-Orders">All Order</a></small>
             <hr>
@@ -28,7 +28,7 @@
           <i class='fas fa-clipboard-check custom-nav-icons text-info'></i><br>
           <small class='text-info side-nav-text' [hidden]="!commonService.sideNavExpanded">Purchase Orders</small>
         </a>
-			</li><br>
+			</li><br> -->
 			<li class="nav-item">
 				<a class="nav-link" routerLink="#"
 					title="Customers"><i class='far fa-address-card custom-nav-icons text-info'></i><br>
@@ -41,7 +41,12 @@
           <small class='text-info side-nav-text' [hidden]="!commonService.sideNavExpanded">Inventory</small>
         </a>
 			</li><br>
-			<li class="nav-item">
+			<li class="nav-item" (mouseover)="rightDropDownForBilling=true" (mouseout)="rightDropDownForBilling=false">
+        <span class="custom-right-dropdown custom-side-nav" [hidden]="!rightDropDownForBilling">
+            <small><a class="text-info custom-right-dropdown-content nav-link" routerLink="/Invoices">New Sales Invoice</a></small>
+            <hr>
+            <small><a class="text-info custom-right-dropdown-content nav-link"href="#">New Purchase Invoice</a></small>
+        </span>
 				<a class="nav-link" routerLink="#"
 					title="Billing"><i class='fas fa-money-check-alt custom-nav-icons text-info'></i><br>
           <small class='text-info side-nav-text' [hidden]="!commonService.sideNavExpanded">Billing</small>

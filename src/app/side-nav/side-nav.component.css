@@ -14,4 +14,8 @@
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
+  width: 150%;
+}
+custom-right-dropdown-content{
+  font-size: 25px;
 }
