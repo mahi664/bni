@@ -15,10 +15,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { CommonServiceService } from './common-service.service';
 import { PaginationService } from './pagination.service';
+import { InvoiceGenerationComponent } from './invoice-generation/invoice-generation.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AppRoutingModule ],
-  declarations: [ AppComponent, HelloComponent, TopNavComponent, SideNavComponent, InventoryComponent, PurchaseOrderComponent, LoginComponent, DashboardComponent, InvoicesComponent ],
+  declarations: [ AppComponent, HelloComponent, TopNavComponent, SideNavComponent, InventoryComponent, PurchaseOrderComponent, LoginComponent, DashboardComponent, InvoicesComponent, InvoiceGenerationComponent ],
   bootstrap:    [ AppComponent ],
   providers: [CommonServiceService, PaginationService]
 })

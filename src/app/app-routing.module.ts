@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { InvoicesComponent } from './invoices/invoices.component';
+import { InvoiceGenerationComponent } from './invoice-generation/invoice-generation.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:'Dashboard', component: DashboardComponent},
   {path:'Invoices', component: InvoicesComponent},
   {path:'Purchase-Orders', component: PurchaseOrderComponent},
+  {path:'New-Sales-Invoice', component: InvoiceGenerationComponent},
   {path:'**',component:LoginComponent}
 ]; // sets up routes constant where you define your routes
 

@@ -5,7 +5,7 @@ export class InvoiceDet{
 }
 
 export class ProductDet{
-  constructor(public batchNo: string, public productName: string,public expDate: Date, public mfgDate: Date, public price:number, public quantity: number,public gst: number, public discount: number, public total: number){}
+  constructor(public batchNo: string, public productName: string,public expDate: Date, public mfgDate: Date, public price:number, public cost: number,public quantity: number,public gst: number, public discount: number, public total: number){}
 }
 
 @Component({
@@ -16,40 +16,40 @@ export class ProductDet{
 export class PurchaseOrderComponent implements OnInit {
   invoices = [
     new InvoiceDet('2020001',new Date(),'Test Vendor 1',1260,9760,'Paid',[
-      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,2,240,0,2240),
-      new ProductDet('XD2125','Test Product 2',new Date(),new Date(),500,3,120,0,1620),
-      new ProductDet('XD2133','Test Product 3',new Date(),new Date(),5000,1,900,0,5900)
+      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,800,2,240,0,2240),
+      new ProductDet('XD2125','Test Product 2',new Date(),new Date(),500,400,3,120,0,1620),
+      new ProductDet('XD2133','Test Product 3',new Date(),new Date(),5000,4500,1,900,0,5900)
     ]),
     new InvoiceDet('2020002',new Date(),'Test Vendor 2',360,3860,'Partially Paid',[
-      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,2,240,0,2240),
-      new ProductDet('XD2125','Test Product 2',new Date(),new Date(),500,3,120,0,1620)
+       new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,800,2,240,0,2240),
+      new ProductDet('XD2125','Test Product 2',new Date(),new Date(),500,400,3,120,0,1620)
     ]),
     new InvoiceDet('2020003',new Date(),'Test Vendor 1',240,2240,'Unpaid',[
-      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,2,240,0,2240)
+      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,800,2,240,0,2240)
     ]),
     new InvoiceDet('2020001',new Date(),'Test Vendor 1',1260,9760,'Paid',[
-      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,2,240,0,2240),
-      new ProductDet('XD2125','Test Product 2',new Date(),new Date(),500,3,120,0,1620),
-      new ProductDet('XD2133','Test Product 3',new Date(),new Date(),5000,1,900,0,5900)
+      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,800,2,240,0,2240),
+      new ProductDet('XD2125','Test Product 2',new Date(),new Date(),500,400,3,120,0,1620),
+      new ProductDet('XD2133','Test Product 3',new Date(),new Date(),5000,4500,1,900,0,5900)
     ]),
     new InvoiceDet('2020002',new Date(),'Test Vendor 2',360,3860,'Partially Paid',[
-      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,2,240,0,2240),
-      new ProductDet('XD2125','Test Product 2',new Date(),new Date(),500,3,120,0,1620)
+       new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,800,2,240,0,2240),
+      new ProductDet('XD2125','Test Product 2',new Date(),new Date(),500,400,3,120,0,1620)
     ]),
     new InvoiceDet('2020003',new Date(),'Test Vendor 1',240,2240,'Unpaid',[
-      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,2,240,0,2240)
+      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,800,2,240,0,2240)
     ]),
     new InvoiceDet('2020001',new Date(),'Test Vendor 1',1260,9760,'Paid',[
-      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,2,240,0,2240),
-      new ProductDet('XD2125','Test Product 2',new Date(),new Date(),500,3,120,0,1620),
-      new ProductDet('XD2133','Test Product 3',new Date(),new Date(),5000,1,900,0,5900)
+      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,800,2,240,0,2240),
+      new ProductDet('XD2125','Test Product 2',new Date(),new Date(),500,400,3,120,0,1620),
+      new ProductDet('XD2133','Test Product 3',new Date(),new Date(),5000,4500,1,900,0,5900)
     ]),
     new InvoiceDet('2020002',new Date(),'Test Vendor 2',360,3860,'Partially Paid',[
-      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,2,240,0,2240),
-      new ProductDet('XD2125','Test Product 2',new Date(),new Date(),500,3,120,0,1620)
+       new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,800,2,240,0,2240),
+      new ProductDet('XD2125','Test Product 2',new Date(),new Date(),500,400,3,120,0,1620)
     ]),
     new InvoiceDet('2020003',new Date(),'Test Vendor 1',240,2240,'Unpaid',[
-      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,2,240,0,2240)
+      new ProductDet('XD2122','Test Product 1',new Date(),new Date(),1000,800,2,240,0,2240)
     ])
   ];
   paymentsStatuses = ['Paid','Unpaid','Partially Paid'];
