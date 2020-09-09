@@ -16,7 +16,7 @@ export class InvoiceGenerationComponent implements OnInit {
   invoiceId=20200001;
   invoiceDate=new Date();
   products=[];
-  batchNos=['BD2226','BD2227','BD2228','BD2229','BD2230','BD2231','BD2232','VD3222','XD3233','KK4344','XD5444'];
+  batchNos=["BD2226","BD1221","XD4433","XD5565","VD5445"];
   constructor() { }
 
   ngOnInit() {
@@ -31,5 +31,9 @@ export class InvoiceGenerationComponent implements OnInit {
 
   addProductIntoInvoice(){
     this.products.push(new product("","", 0, 0, 0, 0, 0, new Date()));
+  }
+
+  save(){
+    console.log(this.products);
   }
 }
