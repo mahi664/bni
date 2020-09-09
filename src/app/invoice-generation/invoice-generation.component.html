@@ -2,10 +2,24 @@
 	<div class="col-md-2" style="text-align: center;">
 		<h5><b>New Sales Invoice</b></h5>
     <p class="text-info">#{{invoiceId}}</p>
-    <input class="form-control form-control-sm custom-input-style" [(ngModel)]="invoiceDate" type="date">
 	</div>
+  <div class="col-md-4" style="text-align: center;  ">
+
+  </div>
+  <div class="col-md-2" style="text-align: center;  ">
+    <input class="form-control form-control-sm custom-input-style" [(ngModel)]="invoiceDate" type="date"><br>
+    <textarea class="form-control custom-input-style" placeholder="Address" rows="1"></textarea>
+  </div>
+  <div class="col-md-2" style="text-align: center;  ">
+		<input class="form-control form-control-sm custom-input-style" type="text" placeholder="Customer Name.."><br>
+    <input class="form-control form-control-sm custom-input-style" type="text" placeholder="Phone..">
+	</div>
+  <div class="col-md-2" style="text-align: center;  ">
+		<input class="form-control form-control-sm custom-input-style" type="text" placeholder="GST No."><br>
+    <input class="form-control form-control-sm custom-input-style" type="text" placeholder="Email..">
+  </div>
 </div><br>
-<div class="row">
+<!-- <div class="row">
 	<div class="col-md-3" style="text-align: center;  ">
 		<input class="form-control form-control-sm custom-input-style" type="text" placeholder="Customer Name..">
 	</div>
@@ -15,15 +29,15 @@
 	<div class="col-md-2" style="text-align: center;  ">
 		<input class="form-control form-control-sm custom-input-style" type="text" placeholder="GST No.">
   </div>
-</div><br>
-<div class="row">
+</div><br> -->
+<!-- <div class="row">
 	<div class="col-md-3" style="text-align: center;  ">
 		<input class="form-control form-control-sm custom-input-style" type="text" placeholder="Phone..">
 	</div>
 	<div class="col-md-3" style="text-align: center; ">
 		<input class="form-control form-control-sm custom-input-style" type="text" placeholder="Email..">
   </div>
-</div>
+</div> -->
 		<div class="row list-custom-headings bg-info">
 			<div class="col-md-1">#</div>
 			<div class="col-md-2"><small><b>Batch No.</b></small></div>
