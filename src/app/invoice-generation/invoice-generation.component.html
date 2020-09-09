@@ -57,7 +57,7 @@
 					<div class="col-md-2">
             <small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.batchNo" placeholder="Batch Number.." (focus)="rightDropDownForBilling=true" (focusout)="rightDropDownForBilling=false"></small>
             <span class="custom-right-dropdown custom-side-nav card" [hidden]="!rightDropDownForBilling">
-              <small *ngFor="let batch of batchNos">
+              <small *ngFor="let batch of batchNos | filter:product.batchNo">
                 <a class="text-info custom-right-dropdown-content nav-link">{{batch}}</a>
               </small>
             </span>

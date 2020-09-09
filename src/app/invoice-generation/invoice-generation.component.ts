@@ -16,7 +16,7 @@ export class InvoiceGenerationComponent implements OnInit {
   invoiceId=20200001;
   invoiceDate=new Date();
   products=[];
-  batchNos=['BD2226','BD2227','BD2228','BD2229','BD2230','BD2231','BD2232'];
+  batchNos=['BD2226','BD2227','BD2228','BD2229','BD2230','BD2231','BD2232','VD3222','XD3233','KK4344','XD5444'];
   constructor() { }
 
   ngOnInit() {
