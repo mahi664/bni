@@ -5,6 +5,10 @@ export class product{
               public sgst:number,public total:number,public expDate:Date){}
 }
 
+export class batchNos{
+  constructor(public batchno:string){}
+}
+
 @Component({
   selector: 'app-invoice-generation',
   templateUrl: './invoice-generation.component.html',
@@ -16,7 +20,7 @@ export class InvoiceGenerationComponent implements OnInit {
   invoiceId=20200001;
   invoiceDate=new Date();
   products=[];
-  batchNos=["BD2226","BD1221","XD4433","XD5565","VD5445"];
+  batchNoList=[new batchNos("BD2226"),new batchNos("BD1221"),new batchNos("XD4433"),new batchNos("XD5565"),new batchNos("VD5445")];
   constructor() { }
 
   ngOnInit() {
@@ -35,5 +39,9 @@ export class InvoiceGenerationComponent implements OnInit {
 
   save(){
     console.log(this.products);
+  }
+
+  electBatchNo(product,batchno){
+    product.batchNo = batchno;
   }
 }
