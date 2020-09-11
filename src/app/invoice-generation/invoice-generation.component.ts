@@ -20,11 +20,13 @@ export class InvoiceGenerationComponent implements OnInit {
   invoiceId=20200001;
   invoiceDate=new Date();
   products=[];
+  batchDropDowns=[];
   batchNoList=[new batchNos("BD2226"),new batchNos("BD1221"),new batchNos("XD4433"),new batchNos("XD5565"),new batchNos("VD5445")];
   constructor() { }
 
   ngOnInit() {
     this.products.push(new product("","", 0, 0, 0, 0, 0, new Date()));
+    this.batchDropDowns.push(false);
   }
 
  @HostListener('window:keydown', ['$event'])
@@ -34,6 +36,7 @@ export class InvoiceGenerationComponent implements OnInit {
   }
 
   addProductIntoInvoice(){
+    this.batchDropDowns.push(false);
     this.products.push(new product("","", 0, 0, 0, 0, 0, new Date()));
   }
 
@@ -41,7 +44,7 @@ export class InvoiceGenerationComponent implements OnInit {
     console.log(this.products);
   }
 
-  electBatchNo(product,batchno){
-    product.batchNo = batchno;
+  selectBatchNo(){
+    alert("batchno");
   }
 }
