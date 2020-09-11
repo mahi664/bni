@@ -55,10 +55,10 @@
 			<div class="row" style="margin-top: 2%; text-align: center;">
 				<div class="col-md-1"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1"></div>
 					<div class="col-md-2">
-            <small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.batchNo" placeholder="Batch Number.." (focus)="batchDropDowns[i]=true" (focusout)="batchDropDowns[i]=false"></small>
+            <small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.batchNo"  (ngModelChange)="getFilteredList(product.batchNo)" placeholder="Batch Number.." (blur)="toggleListDisplay(0,i,product)" (focus)="toggleListDisplay(1,i,product)" (keyup)="onKeyPress($event,i,product)"></small>
             <span class="custom-right-dropdown custom-side-nav card" [hidden]="!batchDropDowns[i]">
-              <small *ngFor="let batch of batchNoList | filter:product.batchNo">
-                <a class="text-info custom-right-dropdown-content nav-link" (click)="selectBatchNo()">{{batch.batchno}}</a>
+              <small *ngFor="let batch of filteredBatchNos">
+                <a class="text-info custom-right-dropdown-content nav-link" (click)="selectItem(batch,i,product)">{{batch}}</a>
               </small>
             </span>
           </div>

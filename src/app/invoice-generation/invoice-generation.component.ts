@@ -21,12 +21,16 @@ export class InvoiceGenerationComponent implements OnInit {
   invoiceDate=new Date();
   products=[];
   batchDropDowns=[];
-  batchNoList=[new batchNos("BD2226"),new batchNos("BD1221"),new batchNos("XD4433"),new batchNos("XD5565"),new batchNos("VD5445")];
+  batchNoList=["BD2226","BD1221","XD4433","XD5565","VD5445"];
+  filteredBatchNos: string[] =[];
+  selectedIndex = -1;
+
   constructor() { }
 
   ngOnInit() {
     this.products.push(new product("","", 0, 0, 0, 0, 0, new Date()));
     this.batchDropDowns.push(false);
+    this.filteredBatchNos=[];
   }
 
  @HostListener('window:keydown', ['$event'])
@@ -44,7 +48,64 @@ export class InvoiceGenerationComponent implements OnInit {
     console.log(this.products);
   }
 
-  selectBatchNo(){
-    alert("batchno");
+  getFilteredList(inputItem: string){
+    this.filteredBatchNos = this.batchNoList.filter((item) => item.toLowerCase().includes(inputItem.toLowerCase()));
+  }
+
+  toggleListDisplay(sender: number,index:number, product) {
+
+    if (sender === 1) {
+      // this.selectedIndex = -1;
+      this.batchDropDowns[index] = true;
+      this.getFilteredList(product.batchNo);
+    } else {
+      // helps to select item by clicking
+      setTimeout(() => {
+        // this.selectItem(this.selectedIndex);
+        // this.listHidden = true;
+        product.batchNo = product.batchNo;
+        this.batchDropDowns[index] = false;
+      }, 100);
+    }
+  }
+
+  selectItem(batch:string,index:number,product){
+    this.batchDropDowns[index]=false;
+    product.batchNo = batch;
+  }
+
+  onKeyPress(event,index,product) {
+
+    if (this.batchDropDowns[index]==true) {
+      if (event.key === 'Escape') {
+        this.selectedIndex = -1;
+        this.toggleListDisplay(0,index,product);
+      }
+
+      if (event.key === 'Enter') {
+
+        this.toggleListDisplay(0,index,product);
+      }
+      if (event.key === 'ArrowDown') {
+
+        this.batchDropDowns[index] = false;
+        this.selectedIndex = (this.selectedIndex + 1) % this.filteredBatchNos.length;
+        if (this.filteredBatchNos.length > 0 && this.batchDropDowns[index]==true) {
+          // document.getElementsByTagName('list-item')[this.selectedIndex].scrollIntoView();
+        }
+      } else if (event.key === 'ArrowUp') {
+
+        this.batchDropDowns[index] = false;
+        if (this.selectedIndex <= 0) {
+          this.selectedIndex = this.filteredBatchNos.length;
+        }
+        this.selectedIndex = (this.selectedIndex - 1) % this.filteredBatchNos.length;
+
+        if (this.filteredBatchNos.length > 0 && this.batchDropDowns[index]==true) {
+
+          // document.getElementsByTagName('list-item')[this.selectedIndex].scrollIntoView();
+        }
+      }
+    } 
   }
 }
