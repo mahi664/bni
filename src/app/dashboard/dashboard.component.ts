@@ -78,7 +78,7 @@ export class DashboardComponent implements OnInit {
    optionsYrly = {
      colors: ["#C28500"] 
    };
-   widthYrly = 350;
+   widthYrly = 330;
    heightYrly = 400;
 
   constructor() { }
