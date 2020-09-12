@@ -4,17 +4,18 @@
 	</div>
 	<div class="col-md-2" style="text-align: center;  ">
 		<select class="form-control form-control-sm custom-input-style">
-      <option>Payment Status</option>
+      <option>Select Payment Status</option>
+      <option *ngFor="let payStatus of paymentsStatuses">{{payStatus}}</option>
     </select>
 	</div>
 	<div class="col-md-2" style="text-align: center; ">
 		<input class="form-control form-control-sm custom-input-style" type="date">
-            </div>
+  </div>
 		<div class="col-md-3" style="text-align: center;  ">
-			<input class="form-control form-control-sm custom-input-style" type="text" placeholder="Invoice Id">
-            </div>
+			<input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="quickSearch" placeholder="Quick search">
+    </div>
 			<div class="col-md-2" style="text-align: right;">
-				<h5><span class="badge badge-pill bg-info"><a href="#" style="text-decoration: none; color: white;">+ New Invoice</a></span>
+				<h5><span class="badge badge-pill bg-info"><a routerLink="/New-Sales-Invoice" style="text-decoration: none; color: white;">+ New Invoice</a></span>
 				</h5>
 			</div>
 			<div class="col-md-1" style="text-align: right;">
@@ -34,7 +35,7 @@
 		</div>
 		<hr>
 
-    <div *ngFor="let invoice of pageOfInvoices; let i = index">
+    <div *ngFor="let invoice of pageOfInvoices | filter: quickSearch; let i = index">
 		<div id="{{i}}">
 			<div class="row" style="margin-top: 2%; text-align: center;">
 				<div class="col-md-1"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1"></div>
@@ -64,8 +65,9 @@
               <th>Exp Date</th>
 							<th>Price</th>
 							<th>Qty</th>
-              <th>GST</th>
-							<th>Discount</th>
+              <th>CGST</th>
+              <th>SGST</th>
+							<th>Disc</th>
 							<th>Total</th>
 						</thead>
 						<tbody>
@@ -76,6 +78,7 @@
                 <td>{{product.expDate | date}}</td>
 								<td><i class='fas fa-rupee-sign'></i>{{product.price}}</td>
 								<td>x {{product.quantity}}</td>
+                <td>{{product.gst}}</td>
                 <td>{{product.gst}}</td>
 								<td style="color: red;">{{product.discount}}%</td>
 								<td><i class='fas fa-rupee-sign'></i>{{product.total}}</td>
@@ -110,6 +113,6 @@
     <div class="col-md-12" style="bottom: 0; width: 100%;">
       <h5>
         <span class="badge badge-pill bg-info"><a href="#" style="text-decoration: none; color: white;">Save </a></span>&nbsp;
-        <span class="badge badge-pill bg-info"><a href="#" style="text-decoration: none; color: white;">Delete</a></span>
+        <span class="badge badge-pill bg-info"><a (click)="confirmDelete()" style="text-decoration: none; color: white;">Delete</a></span>
       </h5>
     </div>

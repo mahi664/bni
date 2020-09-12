@@ -49,7 +49,9 @@ export class InvoiceGenerationComponent implements OnInit {
   }
 
   getFilteredList(inputItem: string){
-    this.filteredBatchNos = this.batchNoList.filter((item) => item.toLowerCase().includes(inputItem.toLowerCase()));
+    if(inputItem==='')
+      this.filteredBatchNos = [];
+    else this.filteredBatchNos = this.batchNoList.filter((item) => item.toLowerCase().includes(inputItem.toLowerCase()));
   }
 
   toggleListDisplay(sender: number,index:number, product) {
@@ -88,19 +90,20 @@ export class InvoiceGenerationComponent implements OnInit {
       }
       if (event.key === 'ArrowDown') {
 
-        this.batchDropDowns[index] = false;
+        this.batchDropDowns[index] = true;
         this.selectedIndex = (this.selectedIndex + 1) % this.filteredBatchNos.length;
+        product.batchNo = this.filteredBatchNos[this.selectedIndex];
         if (this.filteredBatchNos.length > 0 && this.batchDropDowns[index]==true) {
           // document.getElementsByTagName('list-item')[this.selectedIndex].scrollIntoView();
         }
       } else if (event.key === 'ArrowUp') {
 
-        this.batchDropDowns[index] = false;
+        this.batchDropDowns[index] = true;
         if (this.selectedIndex <= 0) {
           this.selectedIndex = this.filteredBatchNos.length;
         }
         this.selectedIndex = (this.selectedIndex - 1) % this.filteredBatchNos.length;
-
+        product.batchNo = this.filteredBatchNos[this.selectedIndex];
         if (this.filteredBatchNos.length > 0 && this.batchDropDowns[index]==true) {
 
           // document.getElementsByTagName('list-item')[this.selectedIndex].scrollIntoView();

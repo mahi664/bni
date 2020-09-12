@@ -57,8 +57,8 @@
 					<div class="col-md-2">
             <small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.batchNo"  (ngModelChange)="getFilteredList(product.batchNo)" placeholder="Batch Number.." (blur)="toggleListDisplay(0,i,product)" (focus)="toggleListDisplay(1,i,product)" (keyup)="onKeyPress($event,i,product)"></small>
             <span class="custom-right-dropdown custom-side-nav card" [hidden]="!batchDropDowns[i]">
-              <small *ngFor="let batch of filteredBatchNos">
-                <a class="text-info custom-right-dropdown-content nav-link" (click)="selectItem(batch,i,product)">{{batch}}</a>
+              <small *ngFor="let batch of filteredBatchNos; let j = index">
+                <a class="text-info custom-right-dropdown-content nav-link" (click)="selectItem(batch,i,product)" [ngClass]="{'select-item-style':j==selectedIndex}">{{batch}}</a>
               </small>
             </span>
           </div>
