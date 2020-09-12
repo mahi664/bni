@@ -17,9 +17,10 @@ import { CommonServiceService } from './common-service.service';
 import { PaginationService } from './pagination.service';
 import { InvoiceGenerationComponent } from './invoice-generation/invoice-generation.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, AppRoutingModule, Ng2SearchPipeModule],
+  imports:      [ BrowserModule, FormsModule, AppRoutingModule, Ng2SearchPipeModule, GoogleChartsModule],
   declarations: [ AppComponent, HelloComponent, TopNavComponent, SideNavComponent, InventoryComponent, PurchaseOrderComponent, LoginComponent, DashboardComponent, InvoicesComponent, InvoiceGenerationComponent],
   bootstrap:    [ AppComponent ],
   providers: [CommonServiceService, PaginationService]

@@ -24,14 +24,14 @@
           </div>
         </div><br>
         <div class="row" style="text-align:center;">
-          <div class="col-md-4 card card-body">
-            Weekly Sales graph
-          </div>
-           <div class="col-md-4 card card-body">
-            Monthly Sales graph
+          <div id="columnchart_values" class="col-md-4 card card-body">
+            <google-chart [title]="titleWkly" [type]="typeWkly" [data]="dataWkly" [columns]="columnNamesWkly" [options]="optionsWkly" [width]="widthWkly" [height]="heightWkly">></google-chart>
           </div>
           <div class="col-md-4 card card-body">
-            Yearly Sales graph
+            <google-chart [title]="titleMnthly" [type]="typeMnthly" [data]="dataMnthly" [columns]="columnNamesMnthly" [options]="optionsMnthly" [width]="widthMnthly" [height]="heightMnthly">></google-chart>  
+          </div>
+          <div class="col-md-4 card card-body">
+            <google-chart [title]="titleYrly" [type]="typeYrly" [data]="dataYrly" [columns]="columnNamesYrly" [options]="optionsYrly" [width]="widthYrly" [height]="heightYrly">></google-chart> 
           </div>
         </div>
       </div>

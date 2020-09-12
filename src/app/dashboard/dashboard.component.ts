@@ -23,6 +23,64 @@ export class DashboardComponent implements OnInit {
     new weekDet('30','05','MAR','APR',40),
     new weekDet('05','11','APR','',100),
   ]
+
+  titleWkly = 'Weekly Sale(Feb 03-09)';
+   typeWkly = 'ColumnChart';
+   dataWkly = [
+      ['03', 90],
+      ['04', 40],
+      ['05', 50],
+      ['06', 10],
+      ['07', 20],
+      ['08', 85],
+      ['09', 97] 
+   ];
+   columnNamesWkly = ['Day Of week', 'Daily Sale'];
+   optionsWkly = {
+     colors: ["#026877"] 
+   };
+   widthWkly = 350;
+   heightWkly = 400;
+
+  titleMnthly = 'Monthly Sale(Feb 2020)';
+   typeMnthly = 'AreaChart';
+   dataMnthly = [
+      ['03-09', 80],
+      ['10-16', 69],
+      ['17-23', 23],
+      ['24-01', 89],
+   ];
+   columnNamesMnthly = ['Week', 'Weekly Sale'];
+   optionsMnthly = {
+     colors: ["#C25D00"] 
+   };
+   widthMnthly = 350;
+   heightMnthly = 400;
+   
+
+   titleYrly = 'Yearly Sale(2020)';
+   typeYrly = 'LineChart';
+   dataYrly = [
+      ['Jan', 80],
+      ['Feb', 69],
+      ['Mar', 23],
+      ['Apr', 89],
+      ['May', 65],
+      ['Jun', 54],
+      ['Jul', 87],
+      ['Aug', 76],
+      ['Sep', 67],
+      ['Oct', 69],
+      ['Nov', 56],
+      ['Dec', 87],
+   ];
+   columnNamesYrly = ['Month', 'Monthly Sale'];
+   optionsYrly = {
+     colors: ["#C28500"] 
+   };
+   widthYrly = 350;
+   heightYrly = 400;
+
   constructor() { }
 
   ngOnInit() {
