@@ -89,7 +89,16 @@
           <small class='text-info side-nav-text' [hidden]="!commonService.sideNavExpanded">Reports</small>
         </a>
 			</li><br>
-			<li class="nav-item">
+			<li class="nav-item" (mouseover)="rightDropDownForUploads=true" (mouseout)="rightDropDownForUploads=false">
+        <span class="custom-right-dropdown custom-side-nav" [hidden]="!rightDropDownForUploads" style="margin-bottom: 100%;">
+            <small><a class="text-info custom-right-dropdown-content nav-link" routerLink="/Invoices">Category Upload</a></small>
+            <hr>
+            <small><a class="text-info custom-right-dropdown-content nav-link" routerLink="/Purchase-Orders">Product Uploads</a></small>
+            <hr>
+            <small><a class="text-info custom-right-dropdown-content nav-link" routerLink="/Invoices">Sales Invoice Upload</a></small>
+            <hr>
+            <small><a class="text-info custom-right-dropdown-content nav-link" routerLink="/Purchase-Orders">Purchase Invoice Upload</a></small>
+        </span>
 				<a class="nav-link" routerLink="#"
 					title="File Uploads"><i class='fas fa-upload custom-nav-icons text-info'></i><br>
           <small class='text-info side-nav-text' [hidden]="!commonService.sideNavExpanded">Uploads</small>

@@ -27,15 +27,15 @@ export class DashboardComponent implements OnInit {
   titleWkly = 'Weekly Sale(Feb 03-09)';
    typeWkly = 'ColumnChart';
    dataWkly = [
-      ['03', 90],
-      ['04', 40],
-      ['05', 50],
-      ['06', 10],
-      ['07', 20],
-      ['08', 85],
-      ['09', 97] 
+      ['03', 9000],
+      ['04', 4000],
+      ['05', 5000],
+      ['06', 10000],
+      ['07', 20000],
+      ['08', 8500],
+      ['09', 9700] 
    ];
-   columnNamesWkly = ['Day Of week', 'Daily Sale'];
+   columnNamesWkly = ['Day Of week', 'Daily Sale (In Rs)'];
    optionsWkly = {
      colors: ["#026877"] 
    };
@@ -45,12 +45,12 @@ export class DashboardComponent implements OnInit {
   titleMnthly = 'Monthly Sale(Feb 2020)';
    typeMnthly = 'AreaChart';
    dataMnthly = [
-      ['03-09', 80],
-      ['10-16', 69],
-      ['17-23', 23],
-      ['24-01', 89],
+      ['03-09', 80000],
+      ['10-16', 69000],
+      ['17-23', 23000],
+      ['24-01', 89000],
    ];
-   columnNamesMnthly = ['Week', 'Weekly Sale'];
+   columnNamesMnthly = ['Week', 'Weekly Sale(In Rs)'];
    optionsMnthly = {
      colors: ["#C25D00"] 
    };
@@ -61,20 +61,20 @@ export class DashboardComponent implements OnInit {
    titleYrly = 'Yearly Sale(2020)';
    typeYrly = 'LineChart';
    dataYrly = [
-      ['Jan', 80],
-      ['Feb', 69],
-      ['Mar', 23],
-      ['Apr', 89],
-      ['May', 65],
-      ['Jun', 54],
-      ['Jul', 87],
-      ['Aug', 76],
-      ['Sep', 67],
-      ['Oct', 69],
-      ['Nov', 56],
-      ['Dec', 87],
+      ['Jan', 80000],
+      ['Feb', 69000],
+      ['Mar', 23000],
+      ['Apr', 89000],
+      ['May', 65000],
+      ['Jun', 54000],
+      ['Jul', 87000],
+      ['Aug', 76000],
+      ['Sep', 67000],
+      ['Oct', 69000],
+      ['Nov', 56000],
+      ['Dec', 87000],
    ];
-   columnNamesYrly = ['Month', 'Monthly Sale'];
+   columnNamesYrly = ['Month', 'Monthly Sale(In Rs)'];
    optionsYrly = {
      colors: ["#C28500"] 
    };
