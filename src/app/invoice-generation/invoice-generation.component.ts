@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 
 export class product{
   constructor(public batchNo: string, public productName: String,public qty:number,public price:number,public cgst:number,
-              public sgst:number,public total:number,public expDate:Date){}
+              public sgst:number,public total:number,public disc:number){}
 }
 
 export class batchNos{
@@ -28,7 +28,7 @@ export class InvoiceGenerationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.products.push(new product("","", 0, 0, 0, 0, 0, new Date()));
+    this.products.push(new product("","", 0, 0, 0, 0, 0,0));
     this.batchDropDowns.push(false);
     this.filteredBatchNos=[];
   }
@@ -41,7 +41,17 @@ export class InvoiceGenerationComponent implements OnInit {
 
   addProductIntoInvoice(){
     this.batchDropDowns.push(false);
-    this.products.push(new product("","", 0, 0, 0, 0, 0, new Date()));
+    this.products.push(new product("","", 0, 0, 0, 0, 0, 0));
+  }
+
+  removeProductFromInvoice(batchNo:string){
+    if(batchNo==="")
+    {
+      this.products.pop();
+    }
+    else{
+      this.products = this.products.filter((product)=>product.batchNo!=batchNo);
+    }
   }
 
   save(){

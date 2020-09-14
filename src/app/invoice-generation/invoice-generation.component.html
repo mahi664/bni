@@ -46,8 +46,8 @@
       <div class="col-md-1"><small><b>Price</b></small></div>
 			<div class="col-md-1"><small><b>CGST</b></small></div>
       <div class="col-md-1"><small><b>SGST</b></small></div>
+      <div class="col-md-1"><small><b>Disc</b></small></div>
 			<div class="col-md-1"><small><b>Total</b></small></div>
-			<div class="col-md-2"><small><b>Exp Date</b></small></div>
 		</div>
 		<hr>
     <div *ngFor="let product of products; let i = index">
@@ -78,10 +78,13 @@
 						<small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.sgst" placeholder="SGST"></small>
 					</div>
           <div class="col-md-1 ">
+						<small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.disc" placeholder="Total"></small>
+					</div>
+          <div class="col-md-1 ">
 						<small><input class="form-control form-control-sm custom-input-style" type="text" [(ngModel)]="product.total" placeholder="Total"></small>
 					</div>
-          <div class="col-md-2">
-						<small><input class="form-control form-control-sm custom-input-style" type="date" [(ngModel)]="product.expDate" placeholder="Total"></small>
+          <div class="col-md-1">
+             <small> <span class="badge badge-pill badge-info" *ngIf="products.length>1" (click)="removeProductFromInvoice(product.batchNo)"><i class='fas fa-times'></i></span></small>
 					</div>
 				</div>
 			</div>
