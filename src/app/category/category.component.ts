@@ -26,7 +26,9 @@ export class CategoryComponent implements OnInit {
       "Test category description 0"
     );
 
-    this.categoryService.addNewCategory(category);
+    this.categoryService.addNewCategory(category).subscribe(data => {
+      console.log(data);
+    });
     // this.message = this.categoryService.message;
   }
 }
