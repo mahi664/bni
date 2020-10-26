@@ -21,6 +21,7 @@ import { GoogleChartsModule } from "angular-google-charts";
 import { CategoryComponent } from "./category/category.component";
 import { CategoryService } from "./category.service";
 import { HttpClientModule } from "@angular/common/http";
+import { PurchaseInvoiceGenerationComponent } from './purchase-invoice-generation/purchase-invoice-generation.component';
 
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import { HttpClientModule } from "@angular/common/http";
     DashboardComponent,
     InvoicesComponent,
     InvoiceGenerationComponent,
-    CategoryComponent
+    CategoryComponent,
+    PurchaseInvoiceGenerationComponent
   ],
   bootstrap: [AppComponent],
   providers: [CommonServiceService, PaginationService, CategoryService]

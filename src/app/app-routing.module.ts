@@ -7,6 +7,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { InvoicesComponent } from "./invoices/invoices.component";
 import { InvoiceGenerationComponent } from "./invoice-generation/invoice-generation.component";
 import { CategoryComponent } from "./category/category.component";
+import { PurchaseInvoiceGenerationComponent } from "./purchase-invoice-generation/purchase-invoice-generation.component";
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -16,6 +17,10 @@ const routes: Routes = [
   { path: "Purchase-Orders", component: PurchaseOrderComponent },
   { path: "New-Sales-Invoice", component: InvoiceGenerationComponent },
   { path: "Categories", component: CategoryComponent },
+  {
+    path: "New-Purchase-Invoice",
+    component: PurchaseInvoiceGenerationComponent
+  },
   { path: "**", component: LoginComponent }
 ]; // sets up routes constant where you define your routes
 
