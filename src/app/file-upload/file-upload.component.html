@@ -3,9 +3,9 @@
     <!-- To align peoperly -->
   </div>
   <div class="col-md-4">
-    <select class="form-control form-control-sm custom-input-style">
+    <select class="form-control form-control-sm custom-input-style" [(ngModel)]="selectedUploadType" (change)="loadFormat()">
       <option>Please Select</option>
-      <option *ngFor="let type of fileUploadTypes">{{type}}</option>
+      <option *ngFor="let type of fileUploadTypes" [value]="type">{{type}}</option>
     </select>
     <br />
     <small *ngIf="formatEnabled">Format : </small><br /><br />
