@@ -22,6 +22,7 @@ import { CategoryComponent } from "./category/category.component";
 import { CategoryService } from "./category.service";
 import { HttpClientModule } from "@angular/common/http";
 import { PurchaseInvoiceGenerationComponent } from './purchase-invoice-generation/purchase-invoice-generation.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { PurchaseInvoiceGenerationComponent } from './purchase-invoice-generatio
     InvoicesComponent,
     InvoiceGenerationComponent,
     CategoryComponent,
-    PurchaseInvoiceGenerationComponent
+    PurchaseInvoiceGenerationComponent,
+    FileUploadComponent
   ],
   bootstrap: [AppComponent],
   providers: [CommonServiceService, PaginationService, CategoryService]

@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-4">
+    <!-- To align peoperly -->
+  </div>
+  <div class="col-md-4">
+    <select class="form-control form-control-sm custom-input-style">
+      <option>Please Select</option>
+      <option *ngFor="let type of fileUploadTypes">{{type}}</option>
+    </select>
+    <br />
+    <small *ngIf="formatEnabled">Format : </small><br /><br />
+    <div class="form-group">
+      <input
+        type="file"
+        class="form-control-file form-control-sm"
+        id="exampleFormControlFile1"
+      />
+    </div>
+  </div>
+</div>
