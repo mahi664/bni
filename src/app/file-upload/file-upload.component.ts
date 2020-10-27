@@ -6,10 +6,6 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./file-upload.component.css"]
 })
 export class FileUploadComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
-
   formatEnabled = false;
   dataUploadFormat = "";
   selectedUploadType = "Please Select";
@@ -21,5 +17,22 @@ export class FileUploadComponent implements OnInit {
     "Offers and Discount upload"
   ];
 
-  loadFormat() {}
+  map = new Map<string, string>();
+
+  constructor() {}
+
+  ngOnInit() {
+    this.map.set("Categories Upload", "Category name , Category description ");
+    this.map.set(
+      "Products Upload",
+      "Product name , Product description , Category Name , GST ,Unit "
+    );
+  }
+
+  loadFormat() {
+    if (this.map.has(this.selectedUploadType)) {
+      this.formatEnabled = true;
+      this.dataUploadFormat = this.map.get(this.selectedUploadType);
+    }
+  }
 }

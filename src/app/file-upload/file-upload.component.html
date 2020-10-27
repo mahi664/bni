@@ -8,7 +8,7 @@
       <option *ngFor="let type of fileUploadTypes" [value]="type">{{type}}</option>
     </select>
     <br />
-    <small *ngIf="formatEnabled">Format : </small><br /><br />
+    <small *ngIf="formatEnabled">Format :{{dataUploadFormat}} </small><br /><br />
     <div class="form-group">
       <input
         type="file"

@@ -9,6 +9,7 @@ import { InvoiceGenerationComponent } from "./invoice-generation/invoice-generat
 import { CategoryComponent } from "./category/category.component";
 import { PurchaseInvoiceGenerationComponent } from "./purchase-invoice-generation/purchase-invoice-generation.component";
 import { FileUploadComponent } from "./file-upload/file-upload.component";
+import { CustomersComponent } from "./customers/customers.component";
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
     component: PurchaseInvoiceGenerationComponent
   },
   { path: "File-Uploads", component: FileUploadComponent },
+  { path: "Customers", component: CustomersComponent },
   { path: "**", component: LoginComponent }
 ]; // sets up routes constant where you define your routes
 
