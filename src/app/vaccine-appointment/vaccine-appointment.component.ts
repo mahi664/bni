@@ -13,6 +13,7 @@ export class VaccineAppointmentComponent implements OnInit {
 
   ngOnInit() {
     setInterval(() => {
+      console.log(new Date().getTime());
       this.vaccineService.getAvailSlots().subscribe(response => {
         this.vaccineSlots = response;
         console.log(this.vaccineSlots);
