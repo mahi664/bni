@@ -1,31 +1,33 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router"; // CLI imports router
-import { PurchaseOrderComponent } from "./purchase-order/purchase-order.component";
-import { LoginComponent } from "./login/login.component";
-import { InventoryComponent } from "./inventory/inventory.component";
-import { DashboardComponent } from "./dashboard/dashboard.component";
-import { InvoicesComponent } from "./invoices/invoices.component";
-import { InvoiceGenerationComponent } from "./invoice-generation/invoice-generation.component";
-import { CategoryComponent } from "./category/category.component";
-import { PurchaseInvoiceGenerationComponent } from "./purchase-invoice-generation/purchase-invoice-generation.component";
-import { FileUploadComponent } from "./file-upload/file-upload.component";
-import { CustomersComponent } from "./customers/customers.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router'; // CLI imports router
+import { PurchaseOrderComponent } from './purchase-order/purchase-order.component';
+import { LoginComponent } from './login/login.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { InvoicesComponent } from './invoices/invoices.component';
+import { InvoiceGenerationComponent } from './invoice-generation/invoice-generation.component';
+import { CategoryComponent } from './category/category.component';
+import { PurchaseInvoiceGenerationComponent } from './purchase-invoice-generation/purchase-invoice-generation.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { CustomersComponent } from './customers/customers.component';
+import { VaccineAppointmentComponent } from './vaccine-appointment/vaccine-appointment.component';
 
 const routes: Routes = [
-  { path: "", component: LoginComponent },
-  { path: "Inventory", component: InventoryComponent },
-  { path: "Dashboard", component: DashboardComponent },
-  { path: "Invoices", component: InvoicesComponent },
-  { path: "Purchase-Orders", component: PurchaseOrderComponent },
-  { path: "New-Sales-Invoice", component: InvoiceGenerationComponent },
-  { path: "Categories", component: CategoryComponent },
+  { path: '', component: LoginComponent },
+  { path: 'Inventory', component: InventoryComponent },
+  { path: 'Dashboard', component: DashboardComponent },
+  { path: 'Invoices', component: InvoicesComponent },
+  { path: 'Purchase-Orders', component: PurchaseOrderComponent },
+  { path: 'New-Sales-Invoice', component: InvoiceGenerationComponent },
+  { path: 'Categories', component: CategoryComponent },
   {
-    path: "New-Purchase-Invoice",
+    path: 'New-Purchase-Invoice',
     component: PurchaseInvoiceGenerationComponent
   },
-  { path: "File-Uploads", component: FileUploadComponent },
-  { path: "Customers", component: CustomersComponent },
-  { path: "**", component: LoginComponent }
+  { path: 'File-Uploads', component: FileUploadComponent },
+  { path: 'vaccine-appointment', component: VaccineAppointmentComponent },
+  { path: 'Customers', component: CustomersComponent },
+  { path: '**', component: LoginComponent }
 ]; // sets up routes constant where you define your routes
 
 // configures NgModule imports and exports

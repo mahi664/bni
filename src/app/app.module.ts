@@ -24,6 +24,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { PurchaseInvoiceGenerationComponent } from './purchase-invoice-generation/purchase-invoice-generation.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { CustomersComponent } from './customers/customers.component';
+import { VaccineAppointmentComponent } from './vaccine-appointment/vaccine-appointment.component';
+import { VaccineAppointmentService } from './vaccine-appointment.service';
 
 @NgModule({
   imports: [
@@ -48,9 +50,10 @@ import { CustomersComponent } from './customers/customers.component';
     CategoryComponent,
     PurchaseInvoiceGenerationComponent,
     FileUploadComponent,
-    CustomersComponent
+    CustomersComponent,
+    VaccineAppointmentComponent
   ],
   bootstrap: [AppComponent],
-  providers: [CommonServiceService, PaginationService, CategoryService]
+  providers: [CommonServiceService, PaginationService, CategoryService, VaccineAppointmentService]
 })
 export class AppModule {}
