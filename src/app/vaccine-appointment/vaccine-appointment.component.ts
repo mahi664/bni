@@ -12,10 +12,56 @@ export class VaccineAppointmentComponent implements OnInit {
   constructor(private vaccineService: VaccineAppointmentService) {}
 
   ngOnInit() {
-    this.vaccineService.getAvailSlots().subscribe(response => {
-      this.vaccineSlots = response;
-    });
+    setInterval(() => {
+      this.vaccineService.getAvailSlots().subscribe(response => {
+        this.vaccineSlots = response;
+        console.log(this.vaccineSlots);
+        this.processData();
+      });
+    }, 60000);
+    // this.vaccineService.getAvailSlots().subscribe(response => {
+    //   this.vaccineSlots = response;
+    //   console.log(this.vaccineSlots);
+    //   this.processData();
+    // });
   }
 
-  getData() {}
+  processData() {
+    for (let i = 0; i < this.vaccineSlots.centers.length; i++) {
+      let eachSlot = this.vaccineSlots.centers[i];
+      for (let j = 0; j < eachSlot.sessions.length; j++) {
+        let eachSession = eachSlot.sessions[j];
+        if (eachSession.min_age_limit > 18) {
+          continue;
+        }
+        if (eachSession.available_capacity == 0) {
+          // alert(
+          //   'Vaccine Availiable At: ' +
+          //     eachSlot.address +
+          //     ' ' +
+          //     eachSlot.block_name +
+          //     ' ' +
+          //     eachSlot.name +
+          //     ' ' +
+          //     eachSession.available_capacity +
+          //     ' Doses Availiable ' +
+          //     eachSession.date
+          // );
+          continue;
+        }
+        alert(
+          'Vaccine Availiable At: ' +
+            eachSlot.address +
+            ' ' +
+            eachSlot.block_name +
+            ' ' +
+            eachSlot.name +
+            ' ' +
+            eachSession.available_capacity +
+            ' Doses Availiable ' +
+            eachSession.date
+        );
+      }
+    }
+  }
 }
