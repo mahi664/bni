@@ -13,9 +13,11 @@
     "@angular/router": "10.0.0",
     "angular-google-charts": "^1.1.5",
     "core-js": "3.6.5",
+    "ng-push": "^0.2.2",
     "ng2-search-filter": "0.5.1",
     "rxjs": "6.5.5",
     "tslib": "2.0.0",
+    "web-push": "^3.4.4",
     "zone.js": "0.10.3"
   },
   "scripts": {

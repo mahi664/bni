@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VaccineAppointmentService } from '../vaccine-appointment.service';
+import { PushNotificationsService } from 'ng-push';
 
 @Component({
   selector: 'app-vaccine-appointment',
@@ -9,17 +10,35 @@ import { VaccineAppointmentService } from '../vaccine-appointment.service';
 export class VaccineAppointmentComponent implements OnInit {
   vaccineSlots: any = [];
 
-  constructor(private vaccineService: VaccineAppointmentService) {}
+  constructor(
+    private vaccineService: VaccineAppointmentService,
+    private _pushNotifications: PushNotificationsService
+  ) {
+    this._pushNotifications.requestPermission();
+  }
 
   ngOnInit() {
+    const webpush = require('web-push');
     setInterval(() => {
-      console.log(new Date().getTime());
+      console.log(
+        new Date().getDate() +
+          '/' +
+          new Date().getMonth() +
+          '/' +
+          new Date().getFullYear() +
+          ' ' +
+          new Date().getHours() +
+          ':' +
+          new Date().getMinutes() +
+          ':' +
+          new Date().getSeconds()
+      );
       this.vaccineService.getAvailSlots().subscribe(response => {
         this.vaccineSlots = response;
         console.log(this.vaccineSlots);
         this.processData();
       });
-    }, 60000);
+    }, 20000);
     // this.vaccineService.getAvailSlots().subscribe(response => {
     //   this.vaccineSlots = response;
     //   console.log(this.vaccineSlots);
@@ -28,6 +47,16 @@ export class VaccineAppointmentComponent implements OnInit {
   }
 
   processData() {
+    // let options = {
+    //   //set options
+    //   body: "The truth is, I'am Iron Man!",
+    //   icon: 'assets/images/ironman.png' //adding an icon
+    // };
+    // this._pushNotifications.create('Iron Man', options).subscribe(
+    //   //creates a notification
+    //   res => console.log(res),
+    //   err => console.log(err)
+    // );
     for (let i = 0; i < this.vaccineSlots.centers.length; i++) {
       let eachSlot = this.vaccineSlots.centers[i];
       for (let j = 0; j < eachSlot.sessions.length; j++) {
